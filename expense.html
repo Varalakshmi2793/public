@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<nav>
+    <label class="logo"> Expense Tracker </label>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">signup</a></li>
+    </ul>
+</nav>
+
+<form id="form-control" action="/expense" method="post">
+    <br><br>
+    <label for="expenseamount">Choose ExpenseAmount:</label>
+    <input type="number" name="expenseamount" id="expenseamount" required>
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" required>
+    <label for="category">Choose Category:</label>
+    <select class="category" id="choose_category">
+        <option value="movie">Movie</option>
+        <option value="shopping">Shopping</option>
+        <option value="Petrol">Petrol</option>
+        <option value="HotelExpense">Hotel</option>
+    </select>
+    <button type="submit">Add Expense</button>
+</form>
+
+<button type="submit" id="razorpaybtn">Add Premium</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<p id="premiumMessage"></p>
+<br><br>
+<ul id="list-id"></ul>
+<br><br>
+<div id="leaderboard"></div>
+
+<button id="downloadButton" disabled>Download Expenses</button>
+
+<select id="timePeriodSelect">
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+    <option value="monthly">Monthly</option>
+</select>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
