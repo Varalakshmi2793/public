@@ -1,0 +1,103 @@
+*{
+    margin:0;
+    padding: 0;
+    outline:none;
+    box-sizing: border-box;
+}
+body{
+    height:100vh;
+    width: 100%;
+    font-family: montserrat;
+    background-color: white;
+}
+nav{
+    background:rgb(61, 99, 214);
+    height:80px;
+    width: 100%;
+}
+.logo{
+    color:rgb(1, 4, 7);
+    font-size: 35px;
+    line-height: 60px;
+    padding: 0 10px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px; 
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0, 5px;
+  
+}
+nav ul li a{
+    color: greenyellow;
+    font-size: 17px;
+    padding: 0 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+a:hover{
+    background-color: brown;
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: Block;
+    background-color: rgb(32, 159, 108);
+    width: 410px;
+    padding: 30px;
+}
+.container .text{
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    color:brown
+}
+.container form{
+    margin-top: -40px;
+}
+.container form .formgrp{
+    height: 45 px;
+    width: 100%;
+    margin: 25px 0;
+}
+form .formgrp label{
+    font-size: 18px;
+}
+form .formgrp input{
+    height: 90%;
+    width: 100%;
+    padding-left: 12px;
+    font-size: 20px;
+    border: 1px solid white;
+   }
+form .formgrp input:focus{
+border-color:azure;
+border-bottom-width: 2px;
+}
+form .forgetpass{
+    margin-top: -8px;
+}
+form .forgetpass a:hover{
+    text-decoration: underline;
+}
+form .btn{
+    margin: 20px 0;
+    height: 40px;
+    width:100%;
+    color: rgb(82, 93, 205);
+}
+form .signupform {
+    text-align: center;
+}
+form .signupform a{
+    color:#2200ff;
+}
+form .signupform a:hover{
+    text-decoration: underline;
+}

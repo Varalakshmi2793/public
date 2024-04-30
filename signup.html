@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <label class="logo"> Expense Tracker </label>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="text"> Signup Form</div>
+        <form id="signup-form" action="/signup" method="post">
+            <div class="formgrp">
+                <label for="name">User Name:</label>
+                <input type="text" class="formcontrol" id="name" name="username">
+            </div>
+            <div class="formgrp">
+                <label for="email">Email:</label>
+                <input type="email" class="formcontrol" id="email" name="email">
+            </div>
+            <div class="formgrp">
+                <label for="password">Password:</label>
+                <input type="password" class="formcontrol" id="password" name="password">
+            </div>
+            <div id="message" style="color: rgb(52, 3, 3); display: none;"></div>
+            <button type="submit" class="btn">Sign up</button>
+            <div class="signupform">
+                Existing user? <a href="/login">Login</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const userData = {
+                username: formData.get('username'),
+                email: formData.get('email'),
+                password: formData.get('password')
+            };
+
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+
+                if (response.ok) {
+                    document.getElementById('signup-form').reset();
+                    document.getElementById('message').textContent = 'User signed up successfully';
+                    document.getElementById('message').style.color = 'brown';
+                    document.getElementById('message').style.display = 'block';
+                    return;
+
+                } else {
+                    document.getElementById('signup-form').reset();
+                    const errorMessage = 'Error: request failed with status code ' + response.status;
+                    document.getElementById('message').textContent = errorMessage;
+                    document.getElementById('message').style.display = 'block';
+
+                }
+
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
